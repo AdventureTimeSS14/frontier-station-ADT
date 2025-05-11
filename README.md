@@ -1,54 +1,47 @@
 <p align="center"> <img alt="Frontier Station 14" height="300" src="https://github.com/new-frontiers-14/frontier-station-14/blob/master/Resources/Textures/_NF/Logo/logo.png?raw=true" /></p>
 
-Frontier Station 14 is a fork of [Space Station 14](https://github.com/space-wizards/space-station-14) that runs on [Robust Toolbox](https://github.com/space-wizards/RobustToolbox) engine written in C#.
+Frontier Station 14 это форк [Space Station 14](https://github.com/space-wizards/space-station-14), которая работает на собственном движке [Robust Toolbox](https://github.com/space-wizards/RobustToolbox), написанном на C#.
 
-This is the primary repo for Frontier Station 14.
+Adventure Time: Frontier - это подпроект русскоязычного сервера Adventure Time на базе Frontier Station 14, целью которого является полный перевод на русский язык, поддержка актуальных изменений из основного репозитория, добавление собственных изменений, а так же опора на контент, созданный на серверах Space Station 13.
 
-If you want to host or create content for FS14, this is the repo you need. It contains both RobustToolbox and the content pack for development of new content packs.
+## Ссылки
 
-## Links
+[Наш Discord](https://discord.gg/NY3KDNuH9r) | [Наша вики](https://wiki.adventurestation.space/%D0%97%D0%B0%D0%B3%D0%BB%D0%B0%D0%B2%D0%BD%D0%B0%D1%8F_%D1%81%D1%82%D1%80%D0%B0%D0%BD%D0%B8%D1%86%D0%B0) | [Steam](https://store.steampowered.com/app/1255460/Space_Station_14/)  | [Клиент без Steam](https://spacestation14.io/about/nightlies/)
 
-[Discord](https://discord.gg/tpuAT7d3zm/) | [Steam](https://store.steampowered.com/app/1255460/Space_Station_14/)
+## Контрибьют
 
-## Documentation/Wiki
+Мы приветствуем взносы от любого желающего. Присоединяйтесь к нашему Discord, если хотите помочь. У нас есть список [задач](https://github.com/AdventureTimeSS14/frontier-station-ADT/issues), которые нужно решить, и каждый может их взять на себя. Не стесняйтесь просить о помощи! Просто убедитесь, что ваши изменения и запросы на принятие изменений соответствуют [руководству по участию](https://docs.spacestation14.com/en/general-development/codebase-info/pull-request-guidelines.html).
 
-Our [wiki](https://frontierstation.wiki.gg/) has documentation on FS14's content.
+Просим обратить ваше внимание на список директорий, а так же лицензий, привязанных к ним. Это необходимо для того, чтобы при вашей работе не было ошибок, связанных с неправильной лицензией.
 
-## Contributing
+## Сборка 
 
-We are happy to accept contributions from anybody. Get in Discord if you want to help. We've got a [list of ideas](https://discord.com/channels/1123826877245694004/1127017858833068114) that can be done and anybody can pick them up. Don't be afraid to ask for help either!
+1. Склонируйте этот репозиторий локально.
+2. Запустите RUN_THIS.py для инициализации подмодулей и загрузки движка.
+3. Скомпилируйте проект с помощью команды dotnet build.
 
-We are not currently accepting translations of the game on our main repository. If you would like to translate the game into another language consider creating a fork or contributing to a fork.
+[Более подробные инструкции по запуску проекта.](https://docs.spacestation14.com/en/general-development/setup.html)
 
-If you make any contributions, please make sure to read the markers section in [MARKERS.md](https://github.com/new-frontiers-14/frontier-station-14/blob/master/MARKERS.md)
-Any changes made to files belonging to our upstream should be properly marked in accordance to what is specified there.
+## Лицензия 
 
-## Building
+Содержимое, добавленное в этот репозиторий после коммита 2fca06eaba205ae6fe3aceb8ae2a0594f0effee0 распространяется по лицензии GNU Affero General Public License версии 3.0, если не указано иное. См. `LICENSE-AGPLv3.txt`.
+Содержимое, добавленное в этот репозиторий до коммита 2fca06eaba205ae6fe3aceb8ae2a0594f0effee0 распространяется по лицензии MIT если не указано иное. См. `LICENSE-MIT.txt`.
 
-1. Clone this repo.
-2. Run `RUN_THIS.py` to init submodules and download the engine.
-3. Compile the solution.
+[2fca06eaba205ae6fe3aceb8ae2a0594f0effee0](https://github.com/new-frontiers-14/frontier-station-14/commit/2fca06eaba205ae6fe3aceb8ae2a0594f0effee0) был отправлен 1 июля 2024 года в 16:04 по UTC.
 
-[More detailed instructions on building the project.](https://docs.spacestation14.com/en/general-development/setup.html)
+Большинство ресурсов лицензированы по CC[-BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0/), если не указано иное. У ресурсов есть собственная лицензия и информация об авторском праве в метаданных файла. [Пример](https://github.com/AdventureTimeSS14/frontier-station-ADT/blob/master/Resources/Textures/Objects/Tools/crowbar.rsi/meta.json).
 
-## License
+Обратите внимание, что некоторые ресурсы лицензированы на некоммерческой основе [CC-BY-NC-SA 3.0](https://creativecommons.org/licenses/by-nc-sa/3.0/) или подобной некоммерческой лицензии, и они должны быть удалены, если вы планируете использовать этот проект в коммерческих целях.
 
-Content contributed to this repository after commit 2fca06eaba205ae6fe3aceb8ae2a0594f0effee0 is licensed under the GNU Affero General Public License version 3.0, unless otherwise stated (note Attributions below). See `LICENSE-AGPLv3.txt`.
-Content contributed to this repository before commit 2fca06eaba205ae6fe3aceb8ae2a0594f0effee0 is licensed under the MIT license, unless otherwise stated. See `LICENSE-MIT.txt`.
+## Право на авторство
 
-[2fca06eaba205ae6fe3aceb8ae2a0594f0effee0](https://github.com/new-frontiers-14/frontier-station-14/commit/2fca06eaba205ae6fe3aceb8ae2a0594f0effee0) was pushed on July 1, 2024 at 16:04 UTC
+Разработчики оригинальной сборки воссоздали изначальные суб-директории файлов для удобства их поддержки и разработки.
 
-Most assets are licensed under [CC-BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0/) unless stated otherwise. Assets have their license and the copyright in the metadata file. [Example](https://github.com/space-wizards/space-station-14/blob/master/Resources/Textures/Objects/Tools/crowbar.rsi/meta.json).
+Контент из этих суб-директорий может содержать в себе различные изменения. Строки, изменённые не авторами оригинального кода, будут помечены соответствующими комментариями.
 
-Note that some assets are licensed under the non-commercial [CC-BY-NC-SA 3.0](https://creativecommons.org/licenses/by-nc-sa/3.0/) or similar non-commercial licenses and will need to be removed if you wish to use this project commercially.
+Репозитории, контент которых был наследован, имеют под собой разные лицензии. Для этого, была сделана специальная таблица, которая показывает, какой и чей контент к какой лицензии относится. Это значит, что изменения, сделанные по этим путям, будут распространяться по соответствующей таблице лицензии.
 
-## Attributions
-
-When we pull content from other forks, we organize their content to repo-specific subfolders to better track attribution and limit merge conflicts.
-
-Content under these subdirectories originate from their respective forks and may contain modifications. These modifications are denoted by comments around the modified lines.
-
-| Subdirectory | Fork Name | Fork Repository | License |
+| Суб-директория | Проект | Ссылка | Лицензия |
 |--------------|-----------|-----------------|---------|
 | `_NF` | Frontier Station | https://github.com/new-frontiers-14/frontier-station-14 | AGPL 3.0 |
 | `_CD` | Cosmatic Drift | https://github.com/cosmatic-drift-14/cosmatic-drift | MIT |
@@ -62,10 +55,11 @@ Content under these subdirectories originate from their respective forks and may
 | `_Impstation` | Impstation | https://github.com/impstation/imp-station-14 | AGPL 3.0 |
 | `_NC14` | Nuclear 14 | https://github.com/Vault-Overseers/nuclear-14 | AGPL 3.0 |
 | `Nyanotrasen` | Nyanotrasen | https://github.com/Nyanotrasen/Nyanotrasen | MIT |
+| `ADT` | Adventure Time | https://github.com/AdventureTimeSS14/space_station_ADT | AGPL 3.0 |
 
-Additional repos that we have ported features from without subdirectories are listed below.
+Дополнительные репозитории, контент которых распространяется без дополнительных суб-директорий, указаны ниже.
 
-| Fork Name | Fork Repository | License |
+| Проект | Ссылка | Лицензия |
 |-----------|-----------------|---------|
 | Space Station 14 | https://github.com/space-wizards/space-station-14 | MIT |
 | White Dream | https://github.com/WWhiteDreamProject/wwdpublic | AGPL 3.0 |
