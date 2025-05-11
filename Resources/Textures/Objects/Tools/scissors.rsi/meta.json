@@ -11,7 +11,10 @@
       "name": "icon"
     },
     {
-      "name": "storage"
+      "name": "inhand-left"
+    },
+    {
+      "name": "inhand-right"
     }
   ]
 }
