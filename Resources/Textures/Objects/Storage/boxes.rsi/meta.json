@@ -62,9 +62,6 @@
             "name": "box_security"
         },
         {
-            "name": "box_medical"
-        },
-        {
             "name": "box_science"
         },
         {
@@ -93,9 +90,6 @@
         },
         {
             "name": "holo"
-        },
-        {
-            "name": "id"
         },
         {
             "name": "implant"
@@ -202,18 +196,6 @@
         },
         {
             "name": "agrichemkit"
-        },
-        {
-            "name": "box_olive"
-        },
-        {
-            "name": "shelltranquilizer"
-        },
-        {
-            "name": "shelluranium"
-        },
-        {
-            "name": "recorder"
         }
     ]
 }
