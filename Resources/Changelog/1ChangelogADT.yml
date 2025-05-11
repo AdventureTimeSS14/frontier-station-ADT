@@ -1,0 +1,6 @@
+Entries:
+  - author: RedLis
+    changes:
+      - {message: Перенесены некоторые спрайты с нашей основной сборки, type: Tweak}
+    id: 1
+    time: '2025-05-25T11:35:04.0000000+00:00'
