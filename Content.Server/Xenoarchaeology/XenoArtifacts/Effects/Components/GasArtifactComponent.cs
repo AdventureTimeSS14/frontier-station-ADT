@@ -29,8 +29,15 @@ public sealed partial class GasArtifactComponent : Component
         Gas.Tritium,
         Gas.Ammonia,
         Gas.NitrousOxide,
-        Gas.Frezon
+        Gas.Frezon,
+        //ADT-Gas-Start
+        Gas.BZ,
+        Gas.Hydrogen,
+        Gas.Halon,
+        Gas.AntiNoblium
+        //ADT-Gas-End
     };
+
 
     /// <summary>
     ///     Temperature of spawned gas. If null it will be picked on startup from range from

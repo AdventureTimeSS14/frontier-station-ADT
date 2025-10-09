@@ -174,6 +174,19 @@ namespace Content.Shared.Atmos
             [Gas.Plasma] = Loc.GetString("gas-plasma-abbreviation"),
             [Gas.Tritium] = Loc.GetString("gas-tritium-abbreviation"),
             [Gas.WaterVapor] = Loc.GetString("gas-water-vapor-abbreviation"),
+            // ADT-Gas-Start
+            [Gas.BZ] = Loc.GetString("gas-bz-abbreviation"),
+            [Gas.Pluoxium] = Loc.GetString("gas-pluoxium-abbreviation"),
+            [Gas.Hydrogen] = Loc.GetString("gas-hydrogen-abbreviation"),
+            [Gas.Nitrium] = Loc.GetString("gas-nitrium-abbreviation"),
+            [Gas.Healium] = Loc.GetString("gas-healium-abbreviation"),
+            [Gas.HyperNoblium] = Loc.GetString("gas-hypernoblium-abbreviation"),
+            [Gas.ProtoNitrate] = Loc.GetString("gas-protonitrate-abbreviation"),
+            [Gas.Zauker] = Loc.GetString("gas-zauker-abbreviation"),
+            [Gas.Halon] = Loc.GetString("gas-halon-abbreviation"),
+            [Gas.Helium] = Loc.GetString("gas-helium-abbreviation"),
+            [Gas.AntiNoblium] = Loc.GetString("gas-antinoblium-abbreviation"),
+            // ADT-Gas-End
         };
 
         #region Excited Groups
@@ -203,7 +216,7 @@ namespace Content.Shared.Atmos
         /// <summary>
         ///     Total number of gases. Increase this if you want to add more!
         /// </summary>
-        public const int TotalNumberOfGases = 9;
+        public const int TotalNumberOfGases = 20; //ADT-Gas
 
         /// <summary>
         ///     This is the actual length of the gases arrays in mixtures.
@@ -352,6 +365,53 @@ namespace Content.Shared.Atmos
 
         #endregion
 
+        #region ADT-Gas
+        /// <summary>
+        ///     Defines energy released in BZ formation.
+        /// </summary>
+        public const float BZFormationEnergy = 80000f;
+
+        /// <summary>
+        ///     Defines energy released in N2O decomposition reaction.
+        /// </summary>
+        public const float NitrousOxideDecompositionEnergy = 200000f;
+
+        /// <summary>
+        ///     Defines energy released in Pluoxium formation.
+        /// </summary>
+        public const float PluoxiumFormationEnergy = 250f;
+
+        /// <summary>
+        ///     The maximum amount of pluoxium that can form per reaction tick.
+        /// </summary>
+        public const float PluoxiumMaxRate = 5f;
+        public const float FireH2EnergyReleased = 2800000f;
+        public const float H2OxygenFullBurn = 10f;
+        public const float FireH2BurnRateDelta = 2f;
+        public const float H2MinimumBurnTemperature = T0C + 100f;
+        public const float NitriumFormationTempDivisor = (T0C + 100f) * 2f;
+        public const float NitriumFormationEnergy = 100000f;
+        public const float NitriumDecompositionTempDivisor = (T0C + 100f) * 8f;
+        public const float NitriumDecompositionEnergy = 30000f;
+        public const float NitriumDecompositionMaxTemp = T0C + 70f;
+        public const float NobliumFormationEnergy = 20000000f;
+        public const float ReactionOpperssionThreshold = 5f;
+        public const float HalonFormationEnergy = 300f;
+        public const float HalonCombustionEnergy = 2500f;
+        public const float HealiumFormationEnergy = 9000f;
+        public const float ZaukerFormationEnergy = 5000f;
+        public const float ZaukerFormationTemperatureScale = 0.00005f;
+        public const float ZaukerDecompositionMaxRate = 20f;
+        public const float ZaukerDecompositionEnergy = 460f;
+        public const float ProtoNitrateTemperatureScale = 0.005f;
+        public const float ProtoNitrateFormationEnergy = 650f;
+        public const float ProtoNitrateHydrogenConversionThreshold = 150f;
+        public const float ProtoNitrateHydrogenConversionMaxRate = 5f;
+        public const float ProtoNitrateHydrogenConversionEnergy = 2500f;
+        public const float ProtoNitrateTritiumConversionEnergy = 10000f;
+        public const float ProtoNitrateBZaseConversionEnergy = 60000f;
+        #endregion
+
         #region Frontier Shuttles
         public const float MolesCellShuttle = 2500f;
         #endregion
@@ -371,6 +431,19 @@ namespace Content.Shared.Atmos
         WaterVapor = 5,
         Ammonia = 6,
         NitrousOxide = 7,
-        Frezon = 8
+        Frezon = 8,
+        //ADT-Gas-Start
+        BZ = 9,
+        Pluoxium = 10,
+        Hydrogen = 11,
+        Nitrium = 12,
+        Healium = 13,
+        HyperNoblium = 14,
+        ProtoNitrate = 15,
+        Zauker = 16,
+        Halon = 17,
+        Helium = 18,
+        AntiNoblium = 19
+        //ADT-Gas-End
     }
 }
