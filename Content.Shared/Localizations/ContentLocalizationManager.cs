@@ -53,7 +53,7 @@ namespace Content.Shared.Localizations
             _loc.AddFunction(fallbackCulture, "LOC", FormatLoc);
             _loc.AddFunction(fallbackCulture, "NATURALFIXED", FormatNaturalFixed);
             _loc.AddFunction(fallbackCulture, "NATURALPERCENT", FormatNaturalPercent);
-            _loc.AddFunction(fallbackCulture, "PLAYTIME", FormatPlaytimeOld); // OLD version of FormatPlaytimeOld
+            _loc.AddFunction(fallbackCulture, "PLAYTIME", FormatPlaytimeOldWrapper); // OLD version of FormatPlaytimeOld
             _loc.AddFunction(fallbackCulture, "GASQUANTITY", FormatGasQuantity); 
             _loc.AddFunction(fallbackCulture, "PLAYTIMEMINUTES", FormatPlaytimeMinutes);
             // Temporary ADT Change end
@@ -172,6 +172,12 @@ namespace Content.Shared.Localizations
             var minutes = time.Minutes;
             return Loc.GetString($"zzzz-fmt-playtime", ("hours", hours), ("minutes", minutes));
         }
+
+        private ILocValue FormatPlaytimeOldWrapper(LocArgs args)
+        {
+            var time = args.Args[0].Value is TimeSpan ts ? ts : TimeSpan.Zero;
+            return new LocValueString(FormatPlaytimeOld(time));
+        }
         // ADT temp changes end
 
         /// <summary>
@@ -183,6 +189,7 @@ namespace Content.Shared.Localizations
             var hours = (int)time.TotalHours;
             return Loc.GetString($"zzzz-fmt-playtime", ("hours", hours));
         }
+
 
         public static string FormatPlaytimeMinutes(TimeSpan time)
         {
