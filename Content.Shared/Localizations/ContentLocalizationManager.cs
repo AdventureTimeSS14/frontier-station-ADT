@@ -27,8 +27,12 @@ namespace Content.Shared.Localizations
         public void Initialize()
         {
             var culture = new CultureInfo(Culture);
+            var fallbackCulture = new CultureInfo(FallbackCulture); // Corvax-Localization
 
             _loc.LoadCulture(culture);
+            _loc.LoadCulture(fallbackCulture); // Corvax-Localization
+            _loc.SetFallbackCluture(fallbackCulture); // Corvax-Localization
+            _loc.AddFunction(culture, "MANY", FormatMany); // Corvax-Localization: To prevent problems in auto-generated locale files
             _loc.AddFunction(culture, "PRESSURE", FormatPressure);
             _loc.AddFunction(culture, "POWERWATTS", FormatPowerWatts);
             _loc.AddFunction(culture, "POWERJOULES", FormatPowerJoules);
@@ -39,6 +43,20 @@ namespace Content.Shared.Localizations
             _loc.AddFunction(culture, "NATURALPERCENT", FormatNaturalPercent);
             _loc.AddFunction(culture, "PLAYTIME", FormatPlaytime);
             _loc.AddFunction(culture, "GASQUANTITY", FormatGasQuantity); // Frontier
+            _loc.AddFunction(culture, "PLAYTIMEMINUTES", FormatPlaytimeMinutes); // ADT Change
+            _loc.AddFunction(fallbackCulture, "MANY", FormatMany); // Temporary ADT Change start (пока не будет перенесена полностью локаль)
+            _loc.AddFunction(fallbackCulture, "PRESSURE", FormatPressure);
+            _loc.AddFunction(fallbackCulture, "POWERWATTS", FormatPowerWatts);
+            _loc.AddFunction(fallbackCulture, "POWERJOULES", FormatPowerJoules);
+            _loc.AddFunction(fallbackCulture, "UNITS", FormatUnits);
+            _loc.AddFunction(fallbackCulture, "TOSTRING", args => FormatToString(culture, args));
+            _loc.AddFunction(fallbackCulture, "LOC", FormatLoc);
+            _loc.AddFunction(fallbackCulture, "NATURALFIXED", FormatNaturalFixed);
+            _loc.AddFunction(fallbackCulture, "NATURALPERCENT", FormatNaturalPercent);
+            _loc.AddFunction(fallbackCulture, "PLAYTIME", FormatPlaytime);
+            _loc.AddFunction(fallbackCulture, "GASQUANTITY", FormatGasQuantity); 
+            _loc.AddFunction(fallbackCulture, "PLAYTIMEMINUTES", FormatPlaytimeMinutes);
+            // Temporary ADT Change end
 
 
             /*
@@ -147,13 +165,19 @@ namespace Content.Shared.Localizations
         /// <summary>
         /// Formats playtime as hours and minutes.
         /// </summary>
-        public static string FormatPlaytime(TimeSpan time)
+        public static string FormatPlaytime(TimeSpan time) // ADT changes start
         {
             time = TimeSpan.FromMinutes(Math.Ceiling(time.TotalMinutes));
             var hours = (int)time.TotalHours;
-            var minutes = time.Minutes;
-            return Loc.GetString($"zzzz-fmt-playtime", ("hours", hours), ("minutes", minutes));
+            return Loc.GetString($"zzzz-fmt-playtime", ("hours", hours));
         }
+
+        public static string FormatPlaytimeMinutes(TimeSpan time)
+        {
+            time = TimeSpan.FromMinutes(Math.Ceiling(time.TotalMinutes));
+            var minutes = (int)Math.Ceiling(time.TotalMinutes);
+            return Loc.GetString($"zzzz-fmt-playtime-minutes", ("minutes", minutes));
+        }// ADT changes end
 
         private static ILocValue FormatLoc(LocArgs args)
         {
@@ -260,5 +284,15 @@ namespace Content.Shared.Localizations
             }
             return new LocValueString(FormatPlaytime(time));
         }
+
+        private static ILocValue FormatPlaytimeMinutes(LocArgs args) // ADT Changes start
+        {
+            var time = TimeSpan.Zero;
+            if (args.Args is { Count: > 0 } && args.Args[0].Value is TimeSpan timeArg)
+            {
+                time = timeArg;
+            }
+            return new LocValueString(FormatPlaytimeMinutes(time));
+        } // ADT Changes end
     }
 }
