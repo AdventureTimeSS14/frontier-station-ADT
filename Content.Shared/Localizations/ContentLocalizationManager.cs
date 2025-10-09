@@ -53,7 +53,7 @@ namespace Content.Shared.Localizations
             _loc.AddFunction(fallbackCulture, "LOC", FormatLoc);
             _loc.AddFunction(fallbackCulture, "NATURALFIXED", FormatNaturalFixed);
             _loc.AddFunction(fallbackCulture, "NATURALPERCENT", FormatNaturalPercent);
-            _loc.AddFunction(fallbackCulture, "PLAYTIME", FormatPlaytime);
+            _loc.AddFunction(fallbackCulture, "PLAYTIME", FormatPlaytimeOld); // OLD version of FormatPlaytimeOld
             _loc.AddFunction(fallbackCulture, "GASQUANTITY", FormatGasQuantity); 
             _loc.AddFunction(fallbackCulture, "PLAYTIMEMINUTES", FormatPlaytimeMinutes);
             // Temporary ADT Change end
@@ -163,7 +163,19 @@ namespace Content.Shared.Localizations
         }
 
         /// <summary>
-        /// Formats playtime as hours and minutes.
+        /// Formats playtime as hours and minutes. 
+        /// </summary>
+        public static string FormatPlaytimeOld(TimeSpan time) // ADT temp changes start
+        {
+            time = TimeSpan.FromMinutes(Math.Ceiling(time.TotalMinutes));
+            var hours = (int)time.TotalHours;
+            var minutes = time.Minutes;
+            return Loc.GetString($"zzzz-fmt-playtime", ("hours", hours), ("minutes", minutes));
+        }
+        // ADT temp changes end
+
+        /// <summary>
+        /// Formats playtime as hours.
         /// </summary>
         public static string FormatPlaytime(TimeSpan time) // ADT changes start
         {
