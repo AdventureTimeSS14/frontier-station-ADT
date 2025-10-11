@@ -465,6 +465,14 @@ public enum LogType
     /// </summary>
     Botany = 100,
 
+
+    // ADT Start
+    /// <summary>
+    /// A player grabbed another player // На основном ADT тут номер 97
+    /// </summary>
+    Grab = 101,
+    /// ADT End
+
     // Frontier Station Specific
     #region Frontier Values
     ATMUsage = 200,
