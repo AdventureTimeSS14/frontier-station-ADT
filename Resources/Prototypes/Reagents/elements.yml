@@ -116,6 +116,21 @@
   boilingPoint: 2700.0
   meltingPoint: 1064.76
 
+# ADT changes START
+# убираем, чтобы не было конфликта с id: Hydrogen
+# в Resources\Prototypes\ADT\Atmospherics\Reagents\gases.yml 
+#  - type: reagent
+#    id: Hydrogen
+#    name: reagent-name-hydrogen
+#    group: Elements
+#    desc: reagent-desc-hydrogen
+#    physicalDesc: reagent-physical-desc-gaseous
+#    flavor: bitter
+#    color: "#cccccc"
+#    boilingPoint: -253.0
+#    meltingPoint: -259.2
+#ADT changes END
+
 - type: reagent
   id: Iodine
   name: reagent-name-iodine

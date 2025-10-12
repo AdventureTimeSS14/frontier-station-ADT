@@ -43,8 +43,11 @@ namespace Content.Shared.Localizations
             _loc.AddFunction(culture, "NATURALPERCENT", FormatNaturalPercent);
             _loc.AddFunction(culture, "PLAYTIME", FormatPlaytime);
             _loc.AddFunction(culture, "GASQUANTITY", FormatGasQuantity); // Frontier
-            _loc.AddFunction(culture, "PLAYTIMEMINUTES", FormatPlaytimeMinutes); // ADT Change
-            _loc.AddFunction(fallbackCulture, "MANY", FormatMany); // Temporary ADT Change start (пока не будет перенесена полностью локаль)
+            // ADT change START
+            _loc.AddFunction(culture, "PLAYTIMEMINUTES", FormatPlaytimeMinutes);
+            // ADT change END
+            // ADT TEMP change START (пока не будет перенесена полностью локаль)
+            _loc.AddFunction(fallbackCulture, "MANY", FormatMany);
             _loc.AddFunction(fallbackCulture, "PRESSURE", FormatPressure);
             _loc.AddFunction(fallbackCulture, "POWERWATTS", FormatPowerWatts);
             _loc.AddFunction(fallbackCulture, "POWERJOULES", FormatPowerJoules);
@@ -53,10 +56,10 @@ namespace Content.Shared.Localizations
             _loc.AddFunction(fallbackCulture, "LOC", FormatLoc);
             _loc.AddFunction(fallbackCulture, "NATURALFIXED", FormatNaturalFixed);
             _loc.AddFunction(fallbackCulture, "NATURALPERCENT", FormatNaturalPercent);
-            _loc.AddFunction(fallbackCulture, "PLAYTIME", FormatPlaytimeOldWrapper); // OLD version of FormatPlaytimeOld
+            _loc.AddFunction(fallbackCulture, "PLAYTIME", FormatPlaytimeOldWrapper); // Version of FormatPlaytime for en-US
             _loc.AddFunction(fallbackCulture, "GASQUANTITY", FormatGasQuantity); 
             _loc.AddFunction(fallbackCulture, "PLAYTIMEMINUTES", FormatPlaytimeMinutes);
-            // Temporary ADT Change end
+            // ADT TEMP change END
 
 
             /*
@@ -162,10 +165,11 @@ namespace Content.Shared.Localizations
             return Loc.GetString($"zzzz-fmt-direction-{dir.ToString()}");
         }
 
+        // ADT TEMP changes START
         /// <summary>
-        /// Formats playtime as hours and minutes. 
+        /// Formats playtime as hours and minutes. Version for en-US Locale. 
         /// </summary>
-        public static string FormatPlaytimeOld(TimeSpan time) // ADT temp changes start
+        public static string FormatPlaytimeOld(TimeSpan time)
         {
             time = TimeSpan.FromMinutes(Math.Ceiling(time.TotalMinutes));
             var hours = (int)time.TotalHours;
@@ -178,12 +182,14 @@ namespace Content.Shared.Localizations
             var time = args.Args[0].Value is TimeSpan ts ? ts : TimeSpan.Zero;
             return new LocValueString(FormatPlaytimeOld(time));
         }
-        // ADT temp changes end
+        // ADT TEMP changes END
+
+        // ADT changes start
 
         /// <summary>
         /// Formats playtime as hours.
         /// </summary>
-        public static string FormatPlaytime(TimeSpan time) // ADT changes start
+        public static string FormatPlaytime(TimeSpan time)
         {
             time = TimeSpan.FromMinutes(Math.Ceiling(time.TotalMinutes));
             var hours = (int)time.TotalHours;
