@@ -691,7 +691,7 @@
   - type: HeldSpeedModifier
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitCybersun
-    # ADT Grab start
+  # ADT Grab start
   - type: ModifyGrabStageTime
     modifiers:
       Hard: 3.75

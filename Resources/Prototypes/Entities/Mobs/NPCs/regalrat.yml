@@ -125,6 +125,9 @@
     attributes:
       gender: male
   - type: Sharp
+  # ADT changes START
+  - type: GrabProtection
+  # ADT changes END
 
 - type: entity
   id: MobRatKingBuff

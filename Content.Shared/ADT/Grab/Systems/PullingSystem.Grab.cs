@@ -39,6 +39,7 @@ using Robust.Shared.Physics.Components;
 using Robust.Shared.Physics.Systems;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
+using Content.Shared.GrabProtection;
 
 namespace Content.Shared.Movement.Pulling.Systems;
 
@@ -393,6 +394,11 @@ public abstract partial class PullingSystem
             return TryStartPull(puller, pullable);
         if (!_combat.IsInCombatMode(puller.Owner))
             return TryStopPull(pullable, pullable.Comp, puller);
+
+        //чутка костыль, т.к.  через возведение ивента не выходит
+        if (HasComp<GrabProtectionComponent>(pullable))
+            return false;
+
         if (!HasComp<MobStateComponent>(pullable))
             return TryStopPull(pullable, pullable.Comp, puller);
 
@@ -420,6 +426,12 @@ public abstract partial class PullingSystem
             return false;
 
         if (puller.Comp.NextStageChange > _timing.CurTime)
+            return false;
+
+        var ev = new ModifyGrabStageTimeEvent(GrabStage.Soft);
+        RaiseLocalEvent(pullable, ref ev);
+
+        if (ev.Cancelled)
             return false;
 
         // Check if the puller has enough hands to progress to the next stage
@@ -516,6 +528,9 @@ public abstract partial class PullingSystem
 
         var ev = new ModifyGrabStageTimeEvent(puller.Comp.Stage + direction);
         RaiseLocalEvent(pullable, ref ev);
+
+        if (ev.Cancelled)
+            return false;
 
         var time = puller.Comp.GrabStats[puller.Comp.Stage + direction].SetStageTime * ev.Modifier;
 

@@ -381,7 +381,7 @@
   - type: GroupExamine
   - type: ProtectedFromStepTriggers
     slots: WITHOUT_POCKET
-    # ADT Grab start
+  # ADT Grab start
   - type: ModifyGrabStageTime
     modifiers:
       Hard: 1.25

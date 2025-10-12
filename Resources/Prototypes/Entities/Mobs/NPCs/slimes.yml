@@ -113,6 +113,9 @@
     speechSounds: Slime
   - type: TypingIndicator
     proto: slime
+  # ADT changes START
+  - type: GrabProtection
+  # ADT changes END
 
 - type: entity
   name: basic slime

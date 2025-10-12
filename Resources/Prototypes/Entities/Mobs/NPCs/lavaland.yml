@@ -1,4 +1,4 @@
-﻿- type: entity
+- type: entity
   name: watcher
   id: MobWatcherBase
   parent: [ SimpleSpaceMobBase, FlyingMobBase ]
@@ -73,6 +73,9 @@
     interactFailureString: petting-failure-generic
     interactSuccessSound:
       path: /Audio/Animals/lizard_happy.ogg
+  # ADT changes START
+  - type: GrabProtection
+  # ADT changes END
 
 - type: entity
   id: MobWatcherLavaland
