@@ -93,7 +93,7 @@ public sealed class InjectorSystem : SharedInjectorSystem
         // Is the target a mob? If yes, use a do-after to give them time to respond.
         if (HasComp<MobStateComponent>(target) || HasComp<BloodstreamComponent>(target))
         {
-            // Are use using an injector capible of targeting a mob?
+            // Are use using an injector capable of targeting a mob?
             if (entity.Comp.IgnoreMobs)
                 return;
 
@@ -383,7 +383,7 @@ public sealed class InjectorSystem : SharedInjectorSystem
         // var removedSolution = SolutionContainers.Draw(target.Owner, targetSolution, realTransferAmount);
 
         // // Add back non-whitelisted reagents to the target solution
-        // applicableTargetSolution.AddSolution(temporarilyRemovedSolution, null);
+        // SolutionContainers.TryAddSolution(targetSolution, temporarilyRemovedSolution);
 
         Solution removedSolution;
         if (injector.Comp.ReagentWhitelist is { } reagentWhitelist)

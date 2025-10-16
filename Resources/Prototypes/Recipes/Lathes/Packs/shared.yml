@@ -11,8 +11,8 @@
   - Igniter
   - ModularReceiver
   - MicroManipulatorStockPart
-  - MatterBinStockPart
-  - CapacitorStockPart
+  - MatterBinStockPart # Frontier
+  - CapacitorStockPart # Frontier
   - ConveyorBeltAssembly
 
 - type: latheRecipePack
@@ -49,3 +49,18 @@
   - HandHeldMassScanner
   - ClothingMaskWeldingGas
   - SignallerAdvanced
+  - BluespaceAirTank # Frontier
+  - SmallBluespaceAirTank # Frontier
+
+- type: latheRecipePack
+  id: SalvageSecurityBoards
+  recipes: [] # Frontier: empty list
+  # - ShuttleGunKineticCircuitboard # Frontier
+
+- type: latheRecipePack
+  id: SalvageSecurityWeapons
+  recipes: [] # Frontier: empty list
+  # - WeaponProtoKineticAccelerator # Frontier
+  # - PKAUpgradeDamage # Frontier
+  # - PKAUpgradeRange # Frontier
+  # - PKAUpgradeFireRate # Frontier

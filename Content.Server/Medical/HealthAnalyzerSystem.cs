@@ -18,6 +18,7 @@ using Robust.Server.GameObjects;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Containers;
 using Robust.Shared.Timing;
+using Content.Server._NF.Medical; // Frontier
 using Content.Server._NF.Traits.Assorted; // Frontier
 
 namespace Content.Server.Medical;
@@ -64,8 +65,9 @@ public sealed class HealthAnalyzerSystem : EntitySystem
             component.NextUpdate = _timing.CurTime + component.UpdateInterval;
 
             //Get distance between health analyzer and the scanned entity
+            //null is infinite range
             var patientCoordinates = Transform(patient).Coordinates;
-            if (!_transformSystem.InRange(patientCoordinates, transform.Coordinates, component.MaxScanRange))
+            if (component.MaxScanRange != null && !_transformSystem.InRange(patientCoordinates, transform.Coordinates, component.MaxScanRange.Value))
             {
                 //Range too far, disable updates
                 StopAnalyzingEntity((uid, component), patient);
@@ -217,6 +219,8 @@ public sealed class HealthAnalyzerSystem : EntitySystem
             unclonable = true;
         // End Frontier: add unclonable
 
+        var printable = HasComp<HealthAnalyzerPrinterComponent>(healthAnalyzer); // Frontier
+
         _uiSystem.ServerSendUiMessage(healthAnalyzer, HealthAnalyzerUiKey.Key, new HealthAnalyzerScannedUserMessage(
             GetNetEntity(target),
             bodyTemperature,
@@ -224,7 +228,8 @@ public sealed class HealthAnalyzerSystem : EntitySystem
             scanMode,
             bleeding,
             unrevivable,
-            unclonable // Frontier
+            unclonable, // Frontier
+            printable // Frontier
         ));
     }
 }

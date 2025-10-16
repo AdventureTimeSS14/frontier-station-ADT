@@ -1,6 +1,7 @@
 using System.Diagnostics.CodeAnalysis;
 using System.Numerics;
 using Content.Shared.Alert;
+using Content.Shared.ActionBlocker;
 using Content.Shared.Buckle.Components;
 using Content.Shared.Cuffs.Components;
 using Content.Shared.Database;
@@ -25,6 +26,7 @@ using Robust.Shared.Physics.Components;
 using Robust.Shared.Physics.Events;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
+using Content.Shared.Movement.Components; // Frontier
 
 namespace Content.Shared.Buckle;
 
@@ -33,6 +35,7 @@ public abstract partial class SharedBuckleSystem
     public static ProtoId<AlertCategoryPrototype> BuckledAlertCategory = "Buckled";
 
     [Dependency] private readonly EntityWhitelistSystem _whitelistSystem = default!;
+    [Dependency] private readonly ActionBlockerSystem _actionBlocker = default!;
 
     private void InitializeBuckle()
     {
@@ -178,6 +181,9 @@ public abstract partial class SharedBuckleSystem
 
     private void OnBuckleUpdateCanMove(EntityUid uid, BuckleComponent component, UpdateCanMoveEvent args)
     {
+        if (HasComp<RelayInputMoverComponent>(uid)) // Frontier: allow relaying input when buckled
+            return; // Frontier: allow relaying input when buckled
+
         if (component.Buckled)
             args.Cancel();
     }
@@ -459,7 +465,7 @@ public abstract partial class SharedBuckleSystem
         var buckleXform = Transform(buckle);
         var oldBuckledXform = Transform(strap);
 
-        if (buckleXform.ParentUid == strap.Owner && !Terminating(buckleXform.ParentUid))
+        if (buckleXform.ParentUid == strap.Owner && !Terminating(oldBuckledXform.ParentUid))
         {
             _transform.PlaceNextTo((buckle, buckleXform), (strap.Owner, oldBuckledXform));
             buckleXform.ActivelyLerping = false;
@@ -517,8 +523,14 @@ public abstract partial class SharedBuckleSystem
         if (_gameTiming.CurTime < buckle.Comp.BuckleTime + buckle.Comp.Delay)
             return false;
 
-        if (user != null && !_interaction.InRangeUnobstructed(user.Value, strap.Owner, buckle.Comp.Range, popup: popup))
-            return false;
+        if (user != null)
+        {
+            if (!_interaction.InRangeUnobstructed(user.Value, strap.Owner, buckle.Comp.Range, popup: popup))
+                return false;
+
+            if (user.Value != buckle.Owner && !_actionBlocker.CanComplexInteract(user.Value))
+                return false;
+        }
 
         var unbuckleAttempt = new UnbuckleAttemptEvent(strap, buckle!, user, popup);
         RaiseLocalEvent(buckle, ref unbuckleAttempt);

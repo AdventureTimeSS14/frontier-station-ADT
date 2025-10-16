@@ -1,4 +1,6 @@
-<p align="center"> <img alt="Frontier Station 14" height="300" src="https://github.com/new-frontiers-14/frontier-station-14/blob/master/Resources/Textures/_NF/Logo/logo.png?raw=true" /></p>
+<div class="header" align="center">
+<img alt="Frontier Station" height="300" src="https://github.com/new-frontiers-14/frontier-station-14/blob/master/Resources/Textures/_NF/Logo/logo.png?raw=true" />
+</div>
 
 Frontier Station 14 это форк [Space Station 14](https://github.com/space-wizards/space-station-14), которая работает на собственном движке [Robust Toolbox](https://github.com/space-wizards/RobustToolbox), написанном на C#.
 
@@ -14,7 +16,7 @@ Adventure Time: Frontier - это подпроект русскоязычног�
 
 Просим обратить ваше внимание на список директорий, а так же лицензий, привязанных к ним. Это необходимо для того, чтобы при вашей работе не было ошибок, связанных с неправильной лицензией.
 
-## Сборка 
+## Сборка
 
 1. Склонируйте этот репозиторий локально.
 2. Запустите RUN_THIS.py для инициализации подмодулей и загрузки движка.
@@ -22,7 +24,7 @@ Adventure Time: Frontier - это подпроект русскоязычног�
 
 [Более подробные инструкции по запуску проекта.](https://docs.spacestation14.com/en/general-development/setup.html)
 
-## Лицензия 
+## Лицензия
 
 Содержимое, добавленное в этот репозиторий после коммита 2fca06eaba205ae6fe3aceb8ae2a0594f0effee0 распространяется по лицензии GNU Affero General Public License версии 3.0, если не указано иное. См. `LICENSE-AGPLv3.txt`.
 Содержимое, добавленное в этот репозиторий до коммита 2fca06eaba205ae6fe3aceb8ae2a0594f0effee0 распространяется по лицензии MIT если не указано иное. См. `LICENSE-MIT.txt`.

@@ -79,7 +79,7 @@ namespace Content.Server.Explosion.EntitySystems
         [Dependency] private readonly BodySystem _body = default!;
         [Dependency] private readonly SharedAudioSystem _audio = default!;
         [Dependency] private readonly SharedTransformSystem _transformSystem = default!;
-        [Dependency] private readonly NavMapSystem _navMap = default!;
+        // [Dependency] private readonly NavMapSystem _navMap = default!; // Frontier
         [Dependency] private readonly RadioSystem _radioSystem = default!;
         [Dependency] private readonly IRobustRandom _random = default!;
         [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
@@ -157,7 +157,7 @@ namespace Content.Server.Explosion.EntitySystems
                 return;
             }
 
-            _electrocution.TryDoElectrocution(containerEnt, null, shockOnTrigger.Comp.Damage, shockOnTrigger.Comp.Duration, true);
+            _electrocution.TryDoElectrocution(containerEnt, null, shockOnTrigger.Comp.Damage, shockOnTrigger.Comp.Duration, true, ignoreInsulation: true);
             shockOnTrigger.Comp.NextTrigger = curTime + shockOnTrigger.Comp.Cooldown;
         }
 

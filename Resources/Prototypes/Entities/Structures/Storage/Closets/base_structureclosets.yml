@@ -35,6 +35,8 @@
       blacklist:
         tags:
         - Book
+        components: # Frontier
+        - Blueprint # Frontier
   - type: ItemSlots
   - type: DamageOnHighSpeedImpact
     damage:
@@ -113,6 +115,7 @@
     stateDoorClosed: generic_door
   - type: StaticPrice
     price: 50 # Frontier: 75<50 - TODO: material value rework
+  - type: NFForkLiftable # Frontier
 
 # steel closet base (that can be constructed/deconstructed)
 - type: entity
@@ -124,6 +127,8 @@
     node: done
     containers:
     - entity_storage
+  - type: Paintable
+    group: Closet
 
 #Wall Closet
 - type: entity
@@ -200,6 +205,8 @@
     node: done
     containers:
     - entity_storage
+  - type: Paintable
+    group: WallCloset
 
 #Wall locker
 - type: entity
@@ -223,6 +230,8 @@
     - state: welded
       visible: false
       map: ["enum.WeldableLayers.BaseWelded"]
+  # - type: Paintable # Frontier: return when there are more than one locked wall lockers
+  #   group: WallLocker
 
 #Base suit storage unit
 #I am terribly sorry for duplicating the closet almost-wholesale, but the game malds at me if I don't so here we are.
@@ -246,6 +255,7 @@
     sprite: Structures/Storage/suit_storage.rsi
     layers:
     - state: base
+      map: ["enum.StorageVisualLayers.Base"] # Frontier: test fixes
     - state: door
       map: ["enum.StorageVisualLayers.Door"]
     - state: welded
@@ -311,7 +321,7 @@
             max: 1
   - type: Appearance
   - type: EntityStorageVisuals
-    stateBase: base
+    stateBaseClosed: base # Frontier: stateBase<stateBaseClosed
     stateDoorOpen: base
     stateDoorClosed: door
   - type: LockVisuals
