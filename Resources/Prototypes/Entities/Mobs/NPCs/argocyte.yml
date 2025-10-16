@@ -1,4 +1,4 @@
-﻿- type: entity
+- type: entity
   save: false
   parent: [ BaseSimpleMob, MobCombat ]
   id: BaseMobArgocyte
@@ -50,6 +50,9 @@
   - type: Climbing
   - type: NameIdentifier
     group: GenericNumber
+  # ADT changes START
+  - type: GrabProtection
+  # ADT changes END
 
 - type: entity
   parent: BaseMobArgocyte
