@@ -67,6 +67,9 @@
   - type: GhostTakeoverAvailable
   - type: Speech
     speechVerb: LargeMob
+  # ADT changes START
+  - type: GrabProtection
+  # ADT changes END
 
 - type: entity
   name: space bear

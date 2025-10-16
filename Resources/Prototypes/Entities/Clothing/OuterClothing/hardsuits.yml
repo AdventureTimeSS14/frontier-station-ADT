@@ -30,6 +30,12 @@
   - type: StaticPrice # Frontier
     price: 20 # Frontier
     vendPrice: 2000 # Frontier
+    # ADT Grab start
+  - type: ModifyGrabStageTime
+    modifiers:
+      Hard: 1.75
+      Choke: 1.5
+  # ADT Grab end
 
 #Atmospherics Hardsuit
 - type: entity
@@ -558,6 +564,12 @@
     - MonkeyWearable
     - Hardsuit
     - WhitelistChameleon
+  # ADT Grab start
+  - type: ModifyGrabStageTime
+    modifiers:
+      Hard: 2.25
+      Choke: 2
+  # ADT Grab end
 
 # Syndicate Medic Hardsuit
 - type: entity
@@ -679,6 +691,12 @@
   - type: HeldSpeedModifier
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitCybersun
+  # ADT Grab start
+  - type: ModifyGrabStageTime
+    modifiers:
+      Hard: 3.75
+      Choke: 3
+  # ADT Grab end
 
 #Wizard Hardsuit
 - type: entity

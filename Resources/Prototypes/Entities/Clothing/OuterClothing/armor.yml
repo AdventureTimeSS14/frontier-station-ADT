@@ -180,6 +180,12 @@
   - type: BatterySelfRecharger
     autoRecharge: true
     autoRechargeRate: 2
+    # ADT Grab start
+  - type: ModifyGrabStageTime
+    modifiers:
+      Hard: 1.2
+      Choke: 1.2
+  # ADT Grab end
 
 - type: entity
   parent: [ClothingOuterBaseLarge, BaseC3CultContraband, AllowSuitStorageClothing, ContrabandClothing] # Frontier: BaseMajorContraband<BaseC3CultContraband, added ContrabandClothing as parent
@@ -320,6 +326,12 @@
   - type: GroupExamine
   - type: ProtectedFromStepTriggers
     slots: WITHOUT_POCKET
+    # ADT Grab start
+  - type: ModifyGrabStageTime
+    modifiers:
+      Hard: 1.75
+      Choke: 1.5
+  # ADT Grab end
 
 - type: entity
   parent: [ ClothingOuterBaseLarge, BaseC1Contraband, AllowSuitStorageClothing ] # Frontier: BaseMajorContraband<BaseC1Contraband
@@ -369,4 +381,10 @@
   - type: GroupExamine
   - type: ProtectedFromStepTriggers
     slots: WITHOUT_POCKET
+  # ADT Grab start
+  - type: ModifyGrabStageTime
+    modifiers:
+      Hard: 1.25
+      Choke: 1.25
+  # ADT Grab end
 

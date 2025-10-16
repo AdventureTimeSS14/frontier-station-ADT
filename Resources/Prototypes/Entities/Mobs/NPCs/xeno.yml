@@ -121,6 +121,9 @@
     molsPerSecondPerUnitMass: 0.0005
   - type: Speech
     speechVerb: LargeMob
+  # ADT changes START
+  - type: GrabProtection
+  # ADT changes END
 
 - type: entity
   name: praetorian
