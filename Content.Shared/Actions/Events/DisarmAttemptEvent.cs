@@ -4,7 +4,7 @@ namespace Content.Shared.Actions.Events;
 /// Raised directed on the target OR their actively held entity.
 /// </summary>
 [ByRefEvent]
-public record struct DisarmAttemptEvent
+public sealed class DisarmAttemptEvent : CancellableEntityEventArgs
 {
     public readonly EntityUid TargetUid;
     public readonly EntityUid DisarmerUid;
