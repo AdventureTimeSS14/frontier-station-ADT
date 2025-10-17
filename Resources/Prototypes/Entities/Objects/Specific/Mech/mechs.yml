@@ -106,6 +106,10 @@
         node: start
       - !type:DoActsBehavior
         acts: ["Destruction"]
+  # ADT-tweak-start
+  - type: GrabProtection
+  # ADT-tweak-end
+
 
 - type: entity
   id: MechRipley

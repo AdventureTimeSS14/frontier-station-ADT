@@ -150,6 +150,19 @@ public sealed partial class MeleeWeaponComponent : Component
     /// </summary>
     [DataField, AutoNetworkedField]
     public bool MustBeEquippedToUse = false;
+
+    // ADT Disarm tweak start
+    [AutoNetworkedField]
+    public TimeSpan LastDisarm = TimeSpan.Zero;
+
+    public EntityUid? CurrentlyDisarming;
+
+    [DataField, AutoNetworkedField]
+    public int DisarmAttemptsCount = 0;
+
+    [DataField]
+    public int ShovesToDisarm = 3;
+    // ADT Disarm tweak end
 }
 
 /// <summary>

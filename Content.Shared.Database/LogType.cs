@@ -475,6 +475,22 @@ public enum LogType
     /// </summary>
     ShuttleImpact = 102,
 
+
+    // ADT Start
+    /// <summary>
+    /// A player grabbed another player // На основном ADT тут номер 97
+    /// </summary>
+    Grab = 101,
+    /// ADT End
+
+
+    // ADT Start
+    /// <summary>
+    /// A player grabbed another player // На основном ADT тут номер 97
+    /// </summary>
+    Grab = 101,
+    /// ADT End
+
     // Frontier Station Specific
     #region Frontier Values
     ATMUsage = 200,
