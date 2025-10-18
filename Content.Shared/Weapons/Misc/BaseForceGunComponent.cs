@@ -10,13 +10,13 @@ public abstract partial class BaseForceGunComponent : Component
     /// <summary>
     /// The entity the tethered target has a joint to.
     /// </summary>
-    [DataField("tetherEntity"), AutoNetworkedField]
+    [DataField("tetherEntity")]
     public virtual EntityUid? TetherEntity { get; set; }
 
     /// <summary>
     /// The entity currently tethered.
     /// </summary>
-    [ViewVariables(VVAccess.ReadWrite), DataField("tethered"), AutoNetworkedField]
+    [ViewVariables(VVAccess.ReadWrite), DataField("tethered")]
     public virtual EntityUid? Tethered { get; set; }
 
     /// <summary>
