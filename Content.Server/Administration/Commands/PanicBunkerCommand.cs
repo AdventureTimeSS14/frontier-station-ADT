@@ -3,6 +3,7 @@ using Content.Shared.CCVar;
 using Robust.Shared.Configuration;
 using Robust.Shared.Console;
 using Robust.Shared.Localization;
+using Loc = Robust.Shared.Localization.Loc;
 
 namespace Content.Server.Administration.Commands;
 

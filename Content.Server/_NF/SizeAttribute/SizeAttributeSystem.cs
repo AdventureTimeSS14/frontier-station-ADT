@@ -60,10 +60,10 @@ namespace Content.Server.SizeAttribute
                 return;
 
             var appearanceComponent = _entityManager.EnsureComponent<AppearanceComponent>(uid);
-            if (!_appearance.TryGetData<Vector2>(uid, (AppearanceVisuals)"scale", out var oldScale, appearanceComponent))
+            if (!_appearance.TryGetData<Vector2>(uid, "scale", out var oldScale, appearanceComponent))
                 oldScale = Vector2.One;
 
-            _appearance.SetData(uid, (AppearanceVisuals)"scale", oldScale * scale, appearanceComponent);
+            _appearance.SetData(uid, "scale", oldScale * scale, appearanceComponent);
 
             if (!cosmeticOnly && _entityManager.TryGetComponent(uid, out FixturesComponent? manager))
             {
